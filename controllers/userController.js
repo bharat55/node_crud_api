@@ -24,8 +24,8 @@ const registerUser = asyncHandler(async (req, res) => {
     throw new Error("All fields are mandatory");
   }
 
-  const userAvailable = User.findOne({ email: email });
-
+  const userAvailable = await User.findOne({ email: email });
+  console.warn("User is " + userAvailable);
   if (userAvailable) {
     res.status = 400;
     throw new Error("User with email already exists!");
@@ -59,7 +59,7 @@ const loginUser = asyncHandler(async (req, res) => {
     throw new Error("Email and password required");
   }
 
-  const user = User.findOne({ email: email });
+  const user = await User.findOne({ email: email });
   if (!user) {
     res.status = 400;
     throw new Error("User not exists with provided email");
