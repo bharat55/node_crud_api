@@ -3,8 +3,9 @@ This is simple node backend application with crud operations
 
 Tool and tech used 
 
-language => node
-database => mongoDb
+**language** = node
+
+**database** = mongoDb
 
 node packages :-
 
