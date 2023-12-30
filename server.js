@@ -2,13 +2,14 @@ const express = require("express");
 require("dotenv").config();
 const connectDb = require("./config/dbConnection");
 const userRoutes = require("./routes/userRoutes");
+const postRoutes = require("./routes/postRoutes");
 
 const app = express();
 const port = process.env.PORT;
 app.use(express.json());
 connectDb();
 app.use("/api/users", userRoutes);
-// app.use("/api/posts", "./routes/postRoutes");
+app.use("/api/posts", postRoutes);
 
 app.get("/", (req, res) => {
   res.send("Hello There");
